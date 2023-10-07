@@ -1,0 +1,20 @@
+
+.sidebar{
+  position: fixed;
+  bottom: 0;
+  right:0;
+  top: 80px;
+  width: 350px;
+  background-color: gray;
+}
+
+.report{
+  background-color: aqua;
+  padding-right: 350px;
+  height: 500px;
+}
+
+.projects{
+  background-color: blueviolet;
+  padding-right: 350px;
+}
