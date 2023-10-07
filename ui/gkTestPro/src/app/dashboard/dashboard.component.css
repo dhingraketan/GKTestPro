@@ -5,16 +5,49 @@
   right:0;
   top: 80px;
   width: 350px;
-  background-color: gray;
+  background-color: rgb(226, 225, 210);
 }
 
 .report{
-  background-color: aqua;
-  padding-right: 350px;
+  margin: 20px;
+  background-color: rgb(226, 225, 210);
+  margin-right: 370px;
   height: 500px;
 }
 
 .projects{
-  background-color: blueviolet;
-  padding-right: 350px;
+  margin: 20px;
+  background-color: rgb(226, 225, 210);
+  margin-right: 370px;
+}
+
+.add-project-div{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.add-project-btn{
+  border: none;
+  border-radius: 7px;
+  background-color: #7140e4;
+  font-size: x-large;
+  font-weight: bold;
+  color: white;
+  padding: 5px 15px;
+  /* transition: 0.5s; */
+}
+
+.add-project-btn:hover{
+  background-color: white;
+  color: #7140e4;
+  border: 2px solid #7140e4;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.add-project-btn:active{
+  background-color: rgb(165, 155, 155);
+  transition: 0s;
 }
