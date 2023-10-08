@@ -11,10 +11,34 @@
 
 .report{
   margin: 20px;
+  padding: 10px;
   background-color: rgb(226, 225, 210);
   margin-right: 370px;
   height: 500px;
+  border: none;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
 }
+
+.report-heading{
+  font-size: xx-large;
+  font-weight:800;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.bar-graph{
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  height: 435px;
+  background-color: white;
+  border: none;
+  border-radius: 7px;
+}
+
 
 .projects{
   margin: 20px;
@@ -97,5 +121,10 @@
 .todo-item:hover{
   color: rgb(0, 174, 255);
   cursor: pointer;
+}
+
+.chrt{
+  display: block;
+  visibility: visible;
 }
 
