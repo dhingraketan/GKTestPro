@@ -54,7 +54,7 @@
 }
 
 .add-project-btn{
-  border: none;
+  border: 2px solid #5d3caa;
   border-radius: 7px;
   background-color: #5d3caa;
   font-size: x-large;
@@ -68,7 +68,8 @@
 .add-project-btn:hover{
   background-color: white;
   color: #421f94;
-  border: 2px solid #4c28a0;
+  border: 2px solid #5d3caa;
+  border-radius: 7px;
   cursor: pointer;
   transition: 0.5s;
 }
