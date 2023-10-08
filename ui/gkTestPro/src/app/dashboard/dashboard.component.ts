@@ -17,28 +17,28 @@ export class DashboardComponent implements OnInit {
         labels: ['G4-Connect', 'G4-Viewer Plus', 'HealthCheck', 'ELIPS', 'AI Dashcam', 'TIMS'],
         datasets: [{
           label: 'Passed',
-          data: [89, 78, 56, 40, 75, 55],
+          data: [69, 75, 56, 40, 62, 55],
           backgroundColor: "green",
           borderColor: "green",
           borderWidth: 1
         },
         {
           label: 'Failed',
-          data: [4, 8, 25, 6, 10, 5],
+          data: [19, 27, 25, 6, 10, 5],
           backgroundColor: "red",
           borderColor: "red",
           borderWidth: 1
         },
       {
         label: 'Blocked',
-        data: [3, 5, 19, 1, 15, 10],
+        data: [18, 11, 19, 1, 15, 10],
         backgroundColor: "yellow",
         borderColor: "yellow",
         borderWidth: 1
       },
       {
         label: 'Not Run',
-        data: [4, 3, 12, 17, 0, 30],
+        data: [25, 35, 12, 17, 23, 30],
         backgroundColor: "grey",
         borderColor: "grey",
         borderWidth: 1
