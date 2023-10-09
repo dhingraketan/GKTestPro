@@ -44,6 +44,9 @@
   margin: 20px;
   background-color: rgb(226, 225, 210);
   margin-right: 370px;
+  padding:10px;
+  border: none;
+  border-radius: 7px;
 }
 
 .add-project-div{
