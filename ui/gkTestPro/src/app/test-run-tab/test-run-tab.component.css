@@ -36,3 +36,10 @@
 .container:hover .arrow {
     visibility: visible;
 }
+
+.info{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    color: gray;
+}
