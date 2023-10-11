@@ -15,6 +15,7 @@ import { ProjectOverviewComponent } from './project-overview/project-overview.co
 import { ProjectTabComponent } from './project-tab/project-tab.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProjectListComponent } from './project-list/project-list.component';
+import { TestRunTabComponent } from './test-run-tab/test-run-tab.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProjectListComponent } from './project-list/project-list.component';
     ProjectOverviewComponent,
     ProjectTabComponent,
     SidebarComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    TestRunTabComponent
   ],
   imports: [
     BrowserModule,
