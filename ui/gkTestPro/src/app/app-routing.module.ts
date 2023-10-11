@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProjectOverviewComponent } from './project-overview/project-overview.component';
+import { ProjectListComponent } from './project-list/project-list.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'project-overview', component: ProjectOverviewComponent }
+  { path: 'project-overview', component: ProjectOverviewComponent },
+  { path: 'projects', component: ProjectListComponent}
 ];
 
 @NgModule({

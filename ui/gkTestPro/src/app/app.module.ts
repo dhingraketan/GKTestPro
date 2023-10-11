@@ -14,6 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProjectOverviewComponent } from './project-overview/project-overview.component';
 import { ProjectTabComponent } from './project-tab/project-tab.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ProjectListComponent } from './project-list/project-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     DashboardComponent,
     ProjectOverviewComponent,
     ProjectTabComponent,
-    SidebarComponent
+    SidebarComponent,
+    ProjectListComponent
   ],
   imports: [
     BrowserModule,
