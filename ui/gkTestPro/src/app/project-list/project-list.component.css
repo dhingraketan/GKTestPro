@@ -10,21 +10,21 @@
 .header{
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
 }
 
 .search-bar{
-
-  margin-left: 20px;
   margin-right: 20px;
 }
 
 .search-input{
+  width: 800px;
+  height: 40px;
   border: none;
   border-radius: 7px;
   padding: 5px;
-  font-size: large;
+  font-size: x-large;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -32,12 +32,13 @@
   border: 2px solid #5d3caa;
   border-radius: 7px;
   background-color: #5d3caa;
-  font-size: large;
+  font-size: x-large;
   font-weight: bold;
   color: white;
-  padding: 5px 15px;
+  padding: 0px 15px;
   font-family: Arial, Helvetica, sans-serif;
   transition: 0.5s;
+  height: 40px;
 }
 
 .filter-btn:hover{
@@ -60,4 +61,45 @@
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 10px;
   margin-left: 10px;
+}
+
+.add-project-div{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.add-project-btn{
+  border: 2px solid #5d3caa;
+  border-radius: 7px;
+  background-color: #5d3caa;
+  font-size: x-large;
+  font-weight: bold;
+  color: white;
+  padding: 5px 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  /* transition: 0.5s; */
+}
+
+.add-project-btn:hover{
+  background-color: white;
+  color: #421f94;
+  border: 2px solid #5d3caa;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.add-project-btn:active{
+  background-color: rgb(165, 155, 155);
+  transition: 0s;
+}
+
+.srch{
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
