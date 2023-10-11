@@ -43,3 +43,51 @@
     gap: 20px;
     color: gray;
 }
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 300px
+}
+
+.status{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.icon{
+    height: 20px;
+    width: 20px;
+    border: none;
+    border-radius: 50%;
+}
+
+#passed{
+    background-color: rgb(13, 155, 13);
+}
+
+#failed{
+    background-color: rgb(255, 0, 0);
+}
+
+#blocked{
+    background-color: rgb(255, 255, 0);
+}
+
+#not-run{
+    background-color: rgb(134, 130, 130);
+}
+
+.category{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
