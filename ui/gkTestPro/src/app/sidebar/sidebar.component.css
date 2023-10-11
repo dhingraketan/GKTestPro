@@ -12,5 +12,27 @@
 
 .icons{
   height: 50px;
-  padding-top: 30px;
+  padding-top: 20px;
+}
+
+.navs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.names{
+  padding-top: 5px;
+  visibility: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navs:hover .names{
+  visibility: visible;
+}
+
+.navs:hover{
+  cursor: pointer;
 }
