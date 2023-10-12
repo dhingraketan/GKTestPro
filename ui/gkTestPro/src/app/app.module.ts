@@ -17,6 +17,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { TestRunTabComponent } from './test-run-tab/test-run-tab.component';
 import { TestRunListComponent } from './test-run-list/test-run-list.component';
+import { TestPlanTabComponent } from './test-plan-tab/test-plan-tab.component';
+import { TestPlanListComponent } from './test-plan-list/test-plan-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { TestRunListComponent } from './test-run-list/test-run-list.component';
     SidebarComponent,
     ProjectListComponent,
     TestRunTabComponent,
-    TestRunListComponent
+    TestRunListComponent,
+    TestPlanTabComponent,
+    TestPlanListComponent
   ],
   imports: [
     BrowserModule,
