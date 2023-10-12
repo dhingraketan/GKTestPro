@@ -19,6 +19,7 @@ import { TestRunTabComponent } from './test-run-tab/test-run-tab.component';
 import { TestRunListComponent } from './test-run-list/test-run-list.component';
 import { TestPlanTabComponent } from './test-plan-tab/test-plan-tab.component';
 import { TestPlanListComponent } from './test-plan-list/test-plan-list.component';
+import { TestPlanOverviewComponent } from './test-plan-overview/test-plan-overview.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TestPlanListComponent } from './test-plan-list/test-plan-list.component
     TestRunTabComponent,
     TestRunListComponent,
     TestPlanTabComponent,
-    TestPlanListComponent
+    TestPlanListComponent,
+    TestPlanOverviewComponent
   ],
   imports: [
     BrowserModule,
