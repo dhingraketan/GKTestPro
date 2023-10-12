@@ -1,0 +1,115 @@
+.container {
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    border-radius: 7px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.main-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+}
+
+.title {
+    padding-left: 5px;
+    font-size: x-large;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.arrow {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    font-weight: 800;
+    color: rgb(49, 49, 233);
+    visibility: hidden;
+}
+
+.container:hover .arrow {
+    visibility: visible;
+}
+
+.container:hover {
+    background-color: rgb(216, 231, 250);
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    color: gray;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    align-items: center;
+}
+
+.status{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.icon{
+    height: 20px;
+    width: 20px;
+    border: none;
+    border-radius: 50%;
+}
+
+#passed{
+    background-color: rgb(13, 155, 13);
+}
+
+#failed{
+    background-color: rgb(255, 0, 0);
+}
+
+#blocked{
+    background-color: rgb(255, 255, 0);
+}
+
+#not-run{
+    background-color: rgb(134, 130, 130);
+}
+
+.category{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.state{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    margin-right: 300px;
+
+}
+
+.active{
+    height: 10px;
+    width: 10px;
+    background-color: rgb(0, 253, 0);
+    border-radius: 50%;
+}
