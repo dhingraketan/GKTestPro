@@ -23,6 +23,7 @@ import { TestPlanOverviewComponent } from './test-plan-overview/test-plan-overvi
 import { TestBankComponent } from './test-bank/test-bank.component';
 import { TestCaseTabComponent } from './test-case-tab/test-case-tab.component';
 import { SettingsMainComponent } from './settings-main/settings-main.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SettingsMainComponent } from './settings-main/settings-main.component';
     TestPlanOverviewComponent,
     TestBankComponent,
     TestCaseTabComponent,
-    SettingsMainComponent
+    SettingsMainComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,

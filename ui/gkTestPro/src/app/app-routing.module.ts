@@ -8,6 +8,7 @@ import { TestPlanListComponent } from './test-plan-list/test-plan-list.component
 import { TestPlanOverviewComponent } from './test-plan-overview/test-plan-overview.component';
 import { TestBankComponent } from './test-bank/test-bank.component';
 import { SettingsMainComponent } from './settings-main/settings-main.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -17,7 +18,9 @@ const routes: Routes = [
   { path: 'test-plans', component: TestPlanListComponent},
   { path: 'test-plans/test-plan-overview', component: TestPlanOverviewComponent},
   { path: 'test-bank', component: TestBankComponent},
-  { path: 'settings', component: SettingsMainComponent}
+  { path: 'settings', component: SettingsMainComponent},
+  { path: 'profile', component: ProfilePageComponent},
+  { path: 'profile/settings', component: SettingsMainComponent},
 ];
 
 @NgModule({
