@@ -7,6 +7,7 @@ import { TestRunListComponent } from './test-run-list/test-run-list.component';
 import { TestPlanListComponent } from './test-plan-list/test-plan-list.component';
 import { TestPlanOverviewComponent } from './test-plan-overview/test-plan-overview.component';
 import { TestBankComponent } from './test-bank/test-bank.component';
+import { SettingsMainComponent } from './settings-main/settings-main.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'test-runs', component: TestRunListComponent},
   { path: 'test-plans', component: TestPlanListComponent},
   { path: 'test-plans/test-plan-overview', component: TestPlanOverviewComponent},
-  { path: 'test-bank', component: TestBankComponent}
+  { path: 'test-bank', component: TestBankComponent},
+  { path: 'settings', component: SettingsMainComponent}
 ];
 
 @NgModule({
