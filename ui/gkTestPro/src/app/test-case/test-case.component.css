@@ -35,6 +35,7 @@
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 10px;
     margin-top: 10px;
+    cursor: pointer;
 }
 
 .action-heading:hover{
@@ -57,7 +58,12 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    background-color: rgb(226, 225, 210);
+    margin: 20px;
+    margin-right: 370px;
     padding: 20px;
+    border: none;
+    border-radius: 7px;
     gap: 30px;
 }
 
@@ -96,41 +102,14 @@
     color: white;
 }
 
-.window-container{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.container-heading{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 20px;
-    align-items: center;
-}
-
-.hding{
-    font-size: x-large;
-    font-family: Arial, Helvetica, sans-serif;
-    color: black
-}
-
-.window-bar{
-    height: 3px;
-    flex: 1;
-    background-color: rgb(21, 107, 206);
-    border: none;
-    border-radius: 5px;
-}
-
-.content{
-    border: black solid 2px;
-    border-radius: 5px;
-    height: 200px;
-    background-color: white;
-}
-
 .date{
     color: rgb(94, 92, 92);
+}
+
+.exe{
+    /* visibility: hidden; */
+}
+
+.execs:after .exe{
+    visibility: hidden;
 }

@@ -10,6 +10,7 @@ import { TestBankComponent } from './test-bank/test-bank.component';
 import { SettingsMainComponent } from './settings-main/settings-main.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { TestCaseOverviewComponent } from './test-case-overview/test-case-overview.component';
+import { TestCaseComponent } from './test-case/test-case.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -22,7 +23,7 @@ const routes: Routes = [
   { path: 'settings', component: SettingsMainComponent},
   { path: 'profile', component: ProfilePageComponent},
   { path: 'profile/settings', component: SettingsMainComponent},
-  { path: 'test-bank/test-case', component: TestCaseOverviewComponent}
+  { path: 'test-bank/test-case', component: TestCaseComponent}
 ];
 
 @NgModule({

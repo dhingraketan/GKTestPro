@@ -25,6 +25,8 @@ import { TestCaseTabComponent } from './test-case-tab/test-case-tab.component';
 import { SettingsMainComponent } from './settings-main/settings-main.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { TestCaseOverviewComponent } from './test-case-overview/test-case-overview.component';
+import { TestCaseExecutionsComponent } from './test-case-executions/test-case-executions.component';
+import { TestCaseComponent } from './test-case/test-case.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { TestCaseOverviewComponent } from './test-case-overview/test-case-overvi
     TestCaseTabComponent,
     SettingsMainComponent,
     ProfilePageComponent,
-    TestCaseOverviewComponent
+    TestCaseOverviewComponent,
+    TestCaseExecutionsComponent,
+    TestCaseComponent
   ],
   imports: [
     BrowserModule,
