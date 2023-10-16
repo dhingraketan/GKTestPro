@@ -1,0 +1,141 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    top: 80px;
+    width: 350px;
+    background-color: rgb(226, 225, 210);
+    border-left: rgb(206, 204, 200) solid 2px;
+}
+
+.sub-heading{
+    font-size: xx-large;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.bar{
+    height: 5px;
+    width: 300px;
+    background-color: black;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.action-heading{
+    font-size: large;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.action-heading:hover{
+    color: rgb(6, 80, 218);
+}
+
+.action-heading:active{
+    color: rgb(137, 177, 252);
+}
+
+.actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 10px;
+    gap: 5px;
+}
+
+.window{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: rgb(226, 225, 210);
+    margin: 20px;
+    margin-right: 370px;
+    padding: 20px;
+    border: none;
+    border-radius: 7px;
+    gap: 30px;
+}
+
+.header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.name{
+    flex: 1;
+    font-size: xx-large;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    padding: 5px;
+    background-color: white;
+    border: rgb(136, 133, 133) solid 2px;
+    border-radius: 5px;
+    color: rgb(136, 133, 133);
+    transition: 0.2s;
+}
+
+.btn:hover{
+   color: rgb(6, 80, 218);
+   border: rgb(6, 80, 218) solid 2px;
+}
+
+.btn:active{
+    background-color: rgb(137, 177, 252);
+    color: white;
+}
+
+.window-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: center;
+}
+
+.hding{
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black
+}
+
+.window-bar{
+    height: 3px;
+    flex: 1;
+    background-color: rgb(21, 107, 206);
+    border: none;
+    border-radius: 5px;
+}
+
+.content{
+    border: black solid 2px;
+    border-radius: 5px;
+    height: 200px;
+    background-color: white;
+}
+
+.date{
+    color: rgb(94, 92, 92);
+}
