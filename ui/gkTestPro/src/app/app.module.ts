@@ -27,6 +27,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { TestCaseOverviewComponent } from './test-case-overview/test-case-overview.component';
 import { TestCaseExecutionsComponent } from './test-case-executions/test-case-executions.component';
 import { TestCaseComponent } from './test-case/test-case.component';
+import { ExecutionTileComponent } from './execution-tile/execution-tile.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { TestCaseComponent } from './test-case/test-case.component';
     ProfilePageComponent,
     TestCaseOverviewComponent,
     TestCaseExecutionsComponent,
-    TestCaseComponent
+    TestCaseComponent,
+    ExecutionTileComponent
   ],
   imports: [
     BrowserModule,
