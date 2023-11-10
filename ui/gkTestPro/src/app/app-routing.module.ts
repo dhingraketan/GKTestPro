@@ -12,19 +12,48 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { TestCaseOverviewComponent } from './test-case-overview/test-case-overview.component';
 import { TestCaseComponent } from './test-case/test-case.component';
 import { TestCaseExecutionsComponent } from './test-case-executions/test-case-executions.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
-  { path: 'project-overview', component: ProjectOverviewComponent },
-  { path: 'projects', component: ProjectListComponent},
-  { path: 'test-runs', component: TestRunListComponent},
-  { path: 'test-plans', component: TestPlanListComponent},
-  { path: 'test-plans/test-plan-overview', component: TestPlanOverviewComponent},
-  { path: 'test-bank', component: TestBankComponent},
-  { path: 'settings', component: SettingsMainComponent},
-  { path: 'profile', component: ProfilePageComponent},
-  { path: 'profile/settings', component: SettingsMainComponent},
-  { path: 'test-bank/test-case', component: TestCaseComponent, children: [ { path: 'ovw', component: TestCaseOverviewComponent }, {path: 'history', component: TestCaseExecutionsComponent} ]}
+  {
+    path: 'landing-page', component: LandingPageComponent, children: [
+    {
+      path: 'dash', component: DashboardComponent
+    },{
+      path: 'project-overview', component: ProjectOverviewComponent
+    },{
+      path: 'projects', component: ProjectListComponent
+    }, {
+      path: 'test-runs', component: TestRunListComponent
+    }, {
+      path: 'test-plans', component: TestPlanListComponent
+    }, {
+      path: 'test-plans/test-plan-overview', component: TestPlanOverviewComponent
+    }, {
+      path: 'test-bank', component: TestBankComponent
+    }, {
+      path: 'settings', component: SettingsMainComponent
+    }, {
+      path: 'profile', component: ProfilePageComponent
+    }, {
+      path: 'profile/settings', component: SettingsMainComponent
+    }, {
+      path: 'test-bank/test-case', component: TestCaseComponent, children: [{ path: 'ovw', component: TestCaseOverviewComponent }, { path: 'history', component: TestCaseExecutionsComponent }]
+    }]
+  },
+  { path: 'login', component: LoginPageComponent},
+  { path: '', redirectTo:'/login', pathMatch: 'full'} // set it as default
+  // ,{ path: 'project-overview', component: ProjectOverviewComponent },
+  // { path: 'projects', component: ProjectListComponent},
+  // { path: 'test-runs', component: TestRunListComponent},
+  // { path: 'test-plans', component: TestPlanListComponent},
+  // { path: 'test-plans/test-plan-overview', component: TestPlanOverviewComponent},
+  // { path: 'test-bank', component: TestBankComponent},
+  // { path: 'settings', component: SettingsMainComponent},
+  // { path: 'profile', component: ProfilePageComponent},
+  // { path: 'profile/settings', component: SettingsMainComponent},
+  // { path: 'test-bank/test-case', component: TestCaseComponent, children: [ { path: 'ovw', component: TestCaseOverviewComponent }, {path: 'history', component: TestCaseExecutionsComponent} ]}
 ];
 
 @NgModule({

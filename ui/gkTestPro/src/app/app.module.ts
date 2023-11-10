@@ -28,6 +28,8 @@ import { TestCaseOverviewComponent } from './test-case-overview/test-case-overvi
 import { TestCaseExecutionsComponent } from './test-case-executions/test-case-executions.component';
 import { TestCaseComponent } from './test-case/test-case.component';
 import { ExecutionTileComponent } from './execution-tile/execution-tile.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { ExecutionTileComponent } from './execution-tile/execution-tile.componen
     TestCaseOverviewComponent,
     TestCaseExecutionsComponent,
     TestCaseComponent,
-    ExecutionTileComponent
+    ExecutionTileComponent,
+    LoginPageComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
