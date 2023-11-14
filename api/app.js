@@ -3,6 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require ('cors');
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://dhingraketan:1234@gkcluster.rcu6bxh.mongodb.net/?retryWrites=true&w=majority')
+.then(() => console.log('Connected to MongoDB...'))
+.catch(err => console.error(err));
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
