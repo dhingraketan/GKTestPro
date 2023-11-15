@@ -5,6 +5,7 @@ export const environment = {
   USER: {
     ADD_USER: 'register',
     LOGIN: 'login',
+    LOGOUT: 'logout',
     CHECK_AUTH: 'isUserAuth',
     GET_USER: 'getUser',
   },

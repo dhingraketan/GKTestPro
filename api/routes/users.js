@@ -79,8 +79,8 @@ router.post('/login', async (req, res, next) => {
 });
 
 router.get('/logout', (req, res) => {
-  res.cookie('jwt', '', {maxAge: 1});
-  res.redirect('/');
+  res.clearCookie('jwt');
+  res.json({msg: "User logged out successfully"});
 });
 
 router.get('/isUserAuth', (req, res) => {
@@ -91,7 +91,6 @@ router.get('/isUserAuth', (req, res) => {
       return res.json(false);
     }
     const verified = jwt.verify(token, "secret");
-    console.log("verified");
     res.json(true);
   } catch (err) {
     console.log(err);

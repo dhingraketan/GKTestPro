@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiServiceService } from '../api-service.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
 
+  constructor(private apiService: ApiServiceService) { }
+
+  logout() {
+    this.apiService.logout().subscribe(
+      (data: any) => {
+        this.apiService.navigateToLogin();
+      });
+  }
 }

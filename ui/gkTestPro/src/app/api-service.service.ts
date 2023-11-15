@@ -38,7 +38,6 @@ export class ApiServiceService {
   }
 
   checkAuth() {
-    console.log("checkAuth");
     let url = environment.USER_BASE_URL + environment.USER.CHECK_AUTH;
     return this.httpClient.get(url, { withCredentials: true });
   }
@@ -48,7 +47,6 @@ export class ApiServiceService {
       this.checkAuth().subscribe(
         (data: any) => {
           const result = data;
-          console.log(result);
           resolve(result);
         },
         (error: any) => {
@@ -57,6 +55,11 @@ export class ApiServiceService {
         }
       );
     });
+  }
+
+  logout(){
+    let url = environment.USER_BASE_URL + environment.USER.LOGOUT;
+    return this.httpClient.get(url, { withCredentials: true });
   }
   
 
