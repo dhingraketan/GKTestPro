@@ -32,6 +32,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatListModule,
     MatButtonModule,
+    HttpClientModule,
     BrowserAnimationsModule
   ],
   providers: [],
