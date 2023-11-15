@@ -30,6 +30,8 @@ import { TestCaseComponent } from './test-case/test-case.component';
 import { ExecutionTileComponent } from './execution-tile/execution-tile.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { AddUserComponent } from './add-user/add-user.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -54,10 +56,12 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     TestCaseComponent,
     ExecutionTileComponent,
     LoginPageComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     MatToolbarModule,
     MatSidenavModule,

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiServiceService } from '../api-service.service';
 
 @Component({
   selector: 'app-settings-main',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./settings-main.component.css']
 })
 export class SettingsMainComponent {
+
+  constructor(private apiService: ApiServiceService) { }
+
+  toAddUser(): void{
+    this.apiService.navigateToAddUser();
+    console.log("toAddUser");
+  }
 
 }
