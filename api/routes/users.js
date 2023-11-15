@@ -34,14 +34,14 @@ router.post('/register', async (req, res, next) => {
     const {_id} = await result.toJSON();
     const token = jwt.sign({_id:_id}, "secret");
     res.cookie('jwt', token, {httpOnly: true, maxAge: 60*60*1000});
-    res.status(200);
+    res.status(200).json({msg: "User created successfully"});
     
 
   } catch (err) {
 
     if (err.code === 11000) {
       console.log("Email already exists");
-      return res.status(400).json({ message: "Email already exists" });
+      return res.status(400).json({ msg: "Email already exists" });
     } else {
 
       return res.status(500);

@@ -9,16 +9,14 @@ import { User } from './User';
 })
 export class ApiServiceService {
 
-  
-
-  constructor( private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   navigateToAddUser() {
-    // this.router.navigate(['landing-page/add-user']);
+    this.router.navigate(['landing-page/add-user']);
   }
 
   navigateToSettings() {
-    // this.router.navigate(['landing-page/settings']);
+    this.router.navigate(['landing-page/settings']);
   }
 
   addUser(user: User) {
