@@ -15,13 +15,49 @@ export class ApiServiceService {
     this.router.navigate(['landing-page/add-user']);
   }
 
+  navigateToLogin() {
+    this.router.navigate(['login']);
+  }
+
   navigateToSettings() {
     this.router.navigate(['landing-page/settings']);
+  }
+
+  navigateToDash() {
+    this.router.navigate(['landing-page/dash']);
   }
 
   addUser(user: User) {
     let url = environment.USER_BASE_URL + environment.USER.ADD_USER;
     return this.httpClient.post(url, user);
   }
+
+  login(credentials: any) {
+    let url = environment.USER_BASE_URL + environment.USER.LOGIN;
+    return this.httpClient.post(url, credentials, { withCredentials: true });
+  }
+
+  checkAuth() {
+    console.log("checkAuth");
+    let url = environment.USER_BASE_URL + environment.USER.CHECK_AUTH;
+    return this.httpClient.get(url, { withCredentials: true });
+  }
+
+  isAutheresied(): Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      this.checkAuth().subscribe(
+        (data: any) => {
+          const result = data;
+          console.log(result);
+          resolve(result);
+        },
+        (error: any) => {
+          alert("Error checking authentication!" + error);
+          resolve(false);
+        }
+      );
+    });
+  }
+  
 
 }

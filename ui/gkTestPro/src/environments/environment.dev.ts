@@ -4,6 +4,8 @@ export const environment = {
   USER_BASE_URL: 'http://localhost:3000/users/',
   USER: {
     ADD_USER: 'register',
+    LOGIN: 'login',
+    CHECK_AUTH: 'isUserAuth',
     GET_USER: 'getUser',
   },
 };

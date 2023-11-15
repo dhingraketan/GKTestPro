@@ -31,9 +31,10 @@ router.post('/register', async (req, res, next) => {
     }
 
     const result = await userModel.create(newUser);
-    const {_id} = await result.toJSON();
-    const token = jwt.sign({_id:_id}, "secret");
-    res.cookie('jwt', token, {httpOnly: true, maxAge: 60*60*1000});
+    // const {_id} = await result.toJSON();
+    // const token = jwt.sign({_id:_id}, "secret");
+    // console.log(token);
+    // res.cookie('jwt', token, {httpOnly: true, maxAge: 60*60*1000});
     res.status(200).json({msg: "User created successfully"});
     
 
@@ -50,6 +51,52 @@ router.post('/register', async (req, res, next) => {
 
 
 
+});
+
+router.post('/login', async (req, res, next) => {
+  const { id, password } = req.body;
+
+  try {
+    const user = await userModel.findOne({ id: id });
+    if (!user) {
+      return res.status(404).json({ msg: "User does not exist" });
+    }
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(404).json({ msg: "Incorrect Password" });
+    }
+
+    const {_id} = await user.toJSON();
+    const token = jwt.sign({_id:_id}, "secret");
+    res.cookie('jwt', token, {httpOnly: true, maxAge: 60*60*1000});
+    res.status(200).json({msg: "User logged in successfully"});
+    //redirect to dashboard page
+
+  } catch (err) {
+    console.log(err);
+    return res.status(500);
+  }
+});
+
+router.get('/logout', (req, res) => {
+  res.cookie('jwt', '', {maxAge: 1});
+  res.redirect('/');
+});
+
+router.get('/isUserAuth', (req, res) => {
+  //check if user is authenticated or not
+  try {
+    const token = req.cookies.jwt;
+    if(!token) {
+      return res.json(false);
+    }
+    const verified = jwt.verify(token, "secret");
+    console.log("verified");
+    res.json(true);
+  } catch (err) {
+    console.log(err);
+    res.json(false);
+  }
 });
 
 module.exports = router;
