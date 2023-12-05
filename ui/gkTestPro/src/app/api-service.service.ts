@@ -3,6 +3,7 @@ import { Router, UrlSerializer } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment.dev';
 import { User } from './User';
+import { TestCase } from './TestCase';
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +20,25 @@ export class ApiServiceService {
     this.router.navigate(['login']);
   }
 
+  navigateToTestBank() {
+    this.router.navigate(['landing-page/test-bank']);
+  }
+
   navigateToSettings() {
     this.router.navigate(['landing-page/settings']);
   }
 
   navigateToDash() {
     this.router.navigate(['landing-page/dash']);
+  }
+
+  navigateToAddTestCase() {
+    this.router.navigate(['landing-page/add-test-case']);
+  }
+
+  addTestCase(testCase: TestCase) {
+    let url = environment.TEST_CASE_BASE_URL + environment.TEST_CASE.ADD_TEST_CASE;
+    return this.httpClient.post(url, testCase);
   }
 
   addUser(user: User) {

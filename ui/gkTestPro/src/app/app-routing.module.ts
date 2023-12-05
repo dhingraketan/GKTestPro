@@ -15,6 +15,7 @@ import { TestCaseExecutionsComponent } from './test-case-executions/test-case-ex
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { AddTestCaseComponent } from './add-test-case/add-test-case.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,8 @@ const routes: Routes = [
       path: 'test-bank/test-case', component: TestCaseComponent, children: [{ path: 'ovw', component: TestCaseOverviewComponent }, { path: 'history', component: TestCaseExecutionsComponent }]
     }, {
       path: 'add-user', component: AddUserComponent
+    }, {
+      path: 'add-test-case', component: AddTestCaseComponent
     }]
   },
   { path: 'login', component: LoginPageComponent},

@@ -6,6 +6,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import  {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +37,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AddTestCaseComponent } from './add-test-case/add-test-case.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +63,8 @@ import { HttpClientModule } from '@angular/common/http';
     ExecutionTileComponent,
     LoginPageComponent,
     LandingPageComponent,
-    AddUserComponent
+    AddUserComponent,
+    AddTestCaseComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +76,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     MatButtonModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

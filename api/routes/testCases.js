@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const uuidv4 = require('uuid');
 
 const testCasdeModel = require('../models/testcase.model');
 
@@ -21,7 +20,7 @@ router.get('/list', async (req, res, next) => {
 // Add a test case
 router.post('/add', async (req, res, next) => {
     const { title, summary, preCons, steps, expectedResult } = req.body;
-    const id = uuidv4();
+    const id = Math.floor(Math.random() * 1000000000);
     const createdOn = new Date().toISOString();
     const LastModified = new Date().toISOString();
     const executionHistory = [];
@@ -50,14 +49,17 @@ router.post('/add', async (req, res, next) => {
 
 
 //get a test case
-router.get('/:id', async (req, res, next) => {
-    const { id } = req.params;
+router.get('/getCase', async (req, res, next) => {
+    const { id } = req.body;
 
     try{
-        const testCase = await testCasdeModel.findOne({id: id});
-        console.log("Test case found")
-        res.status(200).send(testCase);
+        const result = await testCasdeModel.findOne({id});
+
+        res.status(200).send(result);
+
     } catch(err) {
         res.status(500);
     }
 });
+
+module.exports = router;

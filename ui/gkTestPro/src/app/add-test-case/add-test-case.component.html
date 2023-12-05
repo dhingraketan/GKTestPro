@@ -1,0 +1,27 @@
+<!-- form to add test case, with tile, summary, precons, steps and expexted results, add button and cancel button. should have validation checks -->
+<form [formGroup]="testCaseForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-title>Add Test Case</mat-card-title>
+    <mat-card-content>
+      <mat-form-field>
+        <input matInput placeholder="Title" formControlName="title">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Summary" formControlName="summary">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Preconditions" formControlName="preconditions">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Steps" formControlName="steps">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Expected Results" formControlName="expectedResults">
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!testCaseForm.valid">Add</button>
+      <button mat-raised-button color="warn" type="button" (click)="onCancel()">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
