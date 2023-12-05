@@ -8,7 +8,7 @@ const testPlanSchema = mongoose.Schema({
     createdOn: String,
     lastModified: String,
     description: String,
-    testRuns: [String]
+    testRuns: [{testRunId: String}]
 
 });
 

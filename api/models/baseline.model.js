@@ -5,7 +5,7 @@ const baselineSchema = mongoose.Schema({
     title: String,
     createdOn: String,
     lastModified: String,
-    testSuites: [String]
+    testSuites: [{testSuiteId: String}]
 
 });
 

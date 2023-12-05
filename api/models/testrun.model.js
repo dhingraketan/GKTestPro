@@ -14,12 +14,12 @@ const testRunSchema = mongoose.Schema({
     lastModified: String,
     ownerId: String,
     status: String,
-    assigdnedTo: String,
-    testCases: [String],
-    phases: [String],
-    testSuites: [String],
-    baselines: [String],
-    projects: [String]
+    assigdneeId: String,
+    testCases: [{testCaseId: String}],
+    phases: [{phaseId: String}],
+    testSuites: [{testSuiteId: String}],
+    baselines: [{baselineId: String}],
+    projects: [{projectId: String}]
 
 });
 

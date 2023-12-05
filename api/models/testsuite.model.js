@@ -6,7 +6,7 @@ const testSuiteSchema = mongoose.Schema({
     title: String,
     createdOn: String,
     LastModified: String,
-    phases: [String]
+    phases: [{phaseId: String}]
 });
 
 const testSuiteModel = mongoose.model('testSuites', testSuiteSchema);
