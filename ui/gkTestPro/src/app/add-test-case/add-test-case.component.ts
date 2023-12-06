@@ -40,7 +40,7 @@ export class AddTestCaseComponent implements OnInit {
     this.apiService.addTestCase(testCase).subscribe(
       (data: any) => {
         alert("Success" + data.msg)
-        this.apiService.navigateToAddTestCase();
+        this.apiService.navigateToTestBank();
       },
       (error: any) => {
         alert("Error" + error.error.msg);
