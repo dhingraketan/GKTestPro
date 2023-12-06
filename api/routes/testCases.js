@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const uuid = require('uuid');
 
 const testCasdeModel = require('../models/testcase.model');
 
@@ -20,9 +21,9 @@ router.get('/list', async (req, res, next) => {
 // Add a test case
 router.post('/add', async (req, res, next) => {
     const { title, summary, preCons, steps, expectedResult } = req.body;
-    const id = Math.floor(Math.random() * 1000000000);
-    const createdOn = new Date().toISOString();
-    const LastModified = new Date().toISOString();
+    const id = uuid.v4();
+    const createdOn = new Date().toLocaleString();
+    const LastModified = new Date().toLocaleString();
     const executionHistory = [];
 
     try{
