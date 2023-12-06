@@ -3,13 +3,13 @@
     <div class="test-results">
         <div class="result">
             <div class="title">Result: </div>
-            <div class="value">Passed</div>
+            <div class="value">{{execution.result}}</div>
             <div class="dot"></div>
         </div>
 
         <div class="comments-section">
                 <div class="title">Comments: </div>
-                <div class="comments">Passed successfully</div>
+                <div class="comments">{{execution.comments}}</div>
         </div>
     </div>
 
@@ -21,27 +21,27 @@
 
         <div class="feild">
             <div class="title">Executed By: </div>
-            <div class="value">Sachin</div>
+            <div class="value">{{execution.executedBy}}</div>
         </div>
 
         <div class="feild">
             <div class="title">Executed On: </div>
-            <div class="value">12/12/2019</div>
+            <div class="value">{{execution.timestamp}}</div>
         </div>
 
         <div class="feild">
             <div class="title">Project: </div>
-            <div class="value">GK Test Pro</div>
+            <div class="value">{{execution.projectId}}</div>
         </div>
 
         <div class="feild">
             <div class="title">Baseline: </div>
-            <div class="value">Login</div>
+            <div class="value">{{execution.baselineId}}</div>
         </div>
 
         <div class="feild">
-            <div class="title">Test Plan: </div>
-            <div class="value">Septa Test</div>
+            <div class="title">Test Run: </div>
+            <div class="value">{{execution.testRunId}}</div>
         </div>
 
     </div>

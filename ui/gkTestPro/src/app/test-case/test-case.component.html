@@ -3,16 +3,16 @@
 
         <div class="sub-heading">Actions</div>
         <div class="bar"></div>
-        <button class="action-heading dtls" routerLink="ovw">Details</button>
-        <button class="action-heading execs" routerLink="history">Execution History</button>
+        <button class="action-heading dtls" (click)="toOvw()">Details</button>
+        <button class="action-heading execs" (click)="toHistory()">Execution History</button>
 
     </div>
 
     <div class="window">
         <div class="header">
-            <div class="name">Test Case</div>
-            <div class="date">- Created On: 12/10/2023</div>
-            <div class="date">- Last Modified: 15/10/2023</div>
+            <div class="name">{{testCase.title}}</div>
+            <div class="date">- Created On: {{testCase.createdOn}}</div>
+            <div class="date">- Last Modified: {{testCase.LastModified}}</div>
             <button class="btn">&#60; Previous</button>
             <button class="btn">Next ></button>
             <button class="btn">Edit</button>

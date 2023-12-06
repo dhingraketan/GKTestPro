@@ -40,7 +40,7 @@ router.post('/add', async (req, res, next) => {
         }
 
         const result = await testCasdeModel.create(newTestCase);
-
+        console.log(result + "Backdend")
         res.status(200).json({msg: "Test case created successfully"});
 
     } catch(err) {

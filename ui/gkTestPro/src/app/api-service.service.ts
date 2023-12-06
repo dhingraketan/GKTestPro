@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment.dev';
 import { User } from './User';
 import { TestCase } from './TestCase';
+import { FullTestCase } from './FullTestCase';
 
 @Injectable({
   providedIn: 'root'
@@ -36,9 +37,26 @@ export class ApiServiceService {
     this.router.navigate(['landing-page/add-test-case']);
   }
 
+  toTestCase(testCase: FullTestCase) {
+    this.router.navigate(['landing-page/test-bank/test-case'], {state: {data: testCase}});
+  }
+
+  toTestCaseOverview(testCase: FullTestCase) {
+    this.router.navigate(['landing-page/test-bank/test-case/ovw'], {state: {data: testCase}});
+  }
+
+  toTestCaseHistory(testCase: FullTestCase) {
+    this.router.navigate(['landing-page/test-bank/test-case/history'], {state: {data: testCase}});
+  }
+
   addTestCase(testCase: TestCase) {
     let url = environment.TEST_CASE_BASE_URL + environment.TEST_CASE.ADD_TEST_CASE;
     return this.httpClient.post(url, testCase);
+  }
+
+  getTestCases() {
+    let url = environment.TEST_CASE_BASE_URL + environment.TEST_CASE.GET_TEST_CASES;
+    return this.httpClient.get(url);
   }
 
   addUser(user: User) {

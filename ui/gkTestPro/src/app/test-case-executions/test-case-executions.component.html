@@ -3,7 +3,7 @@
         <div class="hding">Execution History</div>
         <div class="window-bar"></div>
     </div>
-    <app-execution-tile></app-execution-tile>
-    <app-execution-tile></app-execution-tile>
-    <app-execution-tile></app-execution-tile>
+    <div *ngFor="let execution of executionHistory">
+        <app-execution-tile [execution]="execution"></app-execution-tile>
+    </div>
 </div>

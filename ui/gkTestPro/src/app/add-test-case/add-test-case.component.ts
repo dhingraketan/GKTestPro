@@ -26,6 +26,7 @@ export class AddTestCaseComponent implements OnInit {
   onSubmit() {
     let title = this.testCaseForm.get('title')?.value;
     let summary = this.testCaseForm.get('summary')?.value;
+    console.log(summary);
     let preCons = this.testCaseForm.get('preconditions')?.value;
     let steps = this.testCaseForm.get('steps')?.value;
     let expectedResult = this.testCaseForm.get('expectedResults')?.value;

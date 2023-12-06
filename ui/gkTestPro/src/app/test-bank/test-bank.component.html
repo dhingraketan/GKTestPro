@@ -24,13 +24,7 @@
 
     </div>
 
-    <div class="project-list">
-        <app-test-case-tab routerLink="test-case/ovw"></app-test-case-tab>
-        <app-test-case-tab></app-test-case-tab>
-        <app-test-case-tab></app-test-case-tab>
-        <app-test-case-tab></app-test-case-tab>
-        <app-test-case-tab></app-test-case-tab>
-        <app-test-case-tab></app-test-case-tab>
-        <app-test-case-tab></app-test-case-tab>
+    <div class="project-list" *ngFor="let test of testCases">
+        <app-test-case-tab [test]="test" (click)="toTestCase(test)"></app-test-case-tab>    
     </div>
 </div>

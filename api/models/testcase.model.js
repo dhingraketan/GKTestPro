@@ -4,7 +4,7 @@ const testCaseSchema = mongoose.Schema({
 
     id: String,
     title: String,
-    summadry: String,
+    summary: String,
     preCons: String,
     steps: String,
     expectedResult: String,
