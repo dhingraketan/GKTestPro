@@ -39,4 +39,8 @@ export class TestCaseComponent implements OnInit{
     this.apiService.prevCaseEvent.emit(this.testCase);
   }
 
+  toEditTestCase() {
+    this.apiService.toEditTestCase(this.testCase);
+  }
+
 }

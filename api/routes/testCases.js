@@ -63,4 +63,19 @@ router.get('/getCase', async (req, res, next) => {
     }
 });
 
+//edit a test case
+router.put('/edit', async (req, res, next) => {
+    const { id, title, summary, preCons, steps, expectedResult } = req.body;
+    const LastModified = new Date().toLocaleString();
+
+    try{
+        const result = await testCasdeModel.findOneAndUpdate({id}, {title, summary, preCons, steps, expectedResult, LastModified});
+
+        res.status(200).json({msg: "Test case updated successfully"});
+
+    } catch(err) {
+        res.status(500);
+    }
+});
+
 module.exports = router;

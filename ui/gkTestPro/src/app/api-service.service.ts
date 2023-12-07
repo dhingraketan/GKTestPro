@@ -14,6 +14,7 @@ export class ApiServiceService {
   nextCaseEvent = new EventEmitter<FullTestCase>();
   prevCaseEvent = new EventEmitter<FullTestCase>();
   takeTestEvent = new EventEmitter<FullTestCase>();
+  updateListEvent = new EventEmitter<FullTestCase>();
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
@@ -53,6 +54,10 @@ export class ApiServiceService {
     this.router.navigate(['landing-page/test-bank/test-case/history'], {state: {data: testCase}});
   }
 
+  toEditTestCase(testCase: FullTestCase) {
+    this.router.navigate(['landing-page/edit'], {state: {data: testCase}});
+  }
+
   addTestCase(testCase: TestCase) {
     let url = environment.TEST_CASE_BASE_URL + environment.TEST_CASE.ADD_TEST_CASE;
     return this.httpClient.post(url, testCase);
@@ -66,6 +71,11 @@ export class ApiServiceService {
   addUser(user: User) {
     let url = environment.USER_BASE_URL + environment.USER.ADD_USER;
     return this.httpClient.post(url, user);
+  }
+
+  editTestCase(testCase: FullTestCase) {
+    let url = environment.TEST_CASE_BASE_URL + environment.TEST_CASE.EDIT_TEST_CASE;
+    return this.httpClient.put(url, testCase);
   }
 
   login(credentials: any) {

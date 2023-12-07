@@ -25,6 +25,18 @@ export class TestBankComponent implements OnInit {
         this.apiService.takeTestEvent.emit(this.testCases[index - 1]);
       }
     });
+
+    this.apiService.updateListEvent.subscribe((testCase: FullTestCase) => {
+      let index = this.findIndex(testCase);
+      this.testCases = []
+      this.apiService.getTestCases().subscribe((data: any) => {
+        this.testResult = data;
+        this.testCases = this.testResult;
+      });
+
+      this.apiService.toTestCase(testCase);
+
+    });
   }
 
   findIndex(testCase: FullTestCase) {

@@ -38,6 +38,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddTestCaseComponent } from './add-test-case/add-test-case.component';
+import { EditTestCaseComponent } from './edit-test-case/edit-test-case.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { AddTestCaseComponent } from './add-test-case/add-test-case.component';
     LoginPageComponent,
     LandingPageComponent,
     AddUserComponent,
-    AddTestCaseComponent
+    AddTestCaseComponent,
+    EditTestCaseComponent
   ],
   imports: [
     BrowserModule,

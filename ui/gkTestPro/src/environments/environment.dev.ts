@@ -13,6 +13,7 @@ export const environment = {
   TEST_CASE: {
     GET_TEST_CASES: 'list',
     ADD_TEST_CASE: 'add',
-    GET_TEST_CASE: 'getCase'
+    GET_TEST_CASE: 'getCase',
+    EDIT_TEST_CASE: 'edit'
   }
 };

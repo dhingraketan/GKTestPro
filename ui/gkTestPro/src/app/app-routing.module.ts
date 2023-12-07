@@ -16,6 +16,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { AddTestCaseComponent } from './add-test-case/add-test-case.component';
+import { EditTestCaseComponent } from './edit-test-case/edit-test-case.component';
 
 const routes: Routes = [
   {
@@ -46,7 +47,9 @@ const routes: Routes = [
       path: 'add-user', component: AddUserComponent
     }, {
       path: 'add-test-case', component: AddTestCaseComponent
-    }]
+    }, { 
+      path: 'edit', component: EditTestCaseComponent 
+  }]
   },
   { path: 'login', component: LoginPageComponent},
   { path: '', redirectTo:'/login', pathMatch: 'full'} // set it as default

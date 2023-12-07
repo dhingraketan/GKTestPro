@@ -13,6 +13,7 @@ export class TestCaseExecutionsComponent implements OnInit{
   constructor(private apiService: ApiServiceService, private route: ActivatedRoute) { 
     this.apiService.takeTestEvent.subscribe((data: FullTestCase) => {
       this.testCase = data;
+      console.log("cauhgt event");
     });
   }
 
