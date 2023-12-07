@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Router, UrlSerializer } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment.dev';
@@ -10,6 +10,10 @@ import { FullTestCase } from './FullTestCase';
   providedIn: 'root'
 })
 export class ApiServiceService {
+
+  nextCaseEvent = new EventEmitter<FullTestCase>();
+  prevCaseEvent = new EventEmitter<FullTestCase>();
+  takeTestEvent = new EventEmitter<FullTestCase>();
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 

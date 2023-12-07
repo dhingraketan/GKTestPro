@@ -11,7 +11,30 @@ export class TestBankComponent implements OnInit {
 
   testResult: any;
   testCases!: FullTestCase[];
-  constructor(private apiService: ApiServiceService) { }
+  constructor(private apiService: ApiServiceService) { 
+    this.apiService.nextCaseEvent.subscribe((data: FullTestCase) => {
+      let index = this.findIndex(data);
+      if (index < this.testCases.length - 1) {
+        this.apiService.takeTestEvent.emit(this.testCases[index + 1]);
+      }
+    });
+
+    this.apiService.prevCaseEvent.subscribe((data: FullTestCase) => {
+      let index = this.findIndex(data);
+      if (index > 0) {
+        this.apiService.takeTestEvent.emit(this.testCases[index - 1]);
+      }
+    });
+  }
+
+  findIndex(testCase: FullTestCase) {
+    for (let i = 0; i < this.testCases.length; i++) {
+      if (testCase.id == this.testCases[i].id) {
+        return i;
+      }
+    }
+    return -1;
+  }
 
   ngOnInit() {
     this.apiService.getTestCases().subscribe((data: any) => {
@@ -31,5 +54,6 @@ export class TestBankComponent implements OnInit {
   toTestCase(test: FullTestCase) {
     this.apiService.toTestCase(test);
   }
+
 
 }

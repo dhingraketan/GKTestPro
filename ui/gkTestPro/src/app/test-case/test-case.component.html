@@ -13,8 +13,8 @@
             <div class="name">{{testCase.title}}</div>
             <div class="date">- Created On: {{testCase.createdOn}}</div>
             <div class="date">- Last Modified: {{testCase.LastModified}}</div>
-            <button class="btn">&#60; Previous</button>
-            <button class="btn">Next ></button>
+            <button class="btn" (click)="toPrevCase()">&#60; Previous</button>
+            <button class="btn" (click)="toNextCase()">Next ></button>
             <button class="btn">Edit</button>
 
         </div>

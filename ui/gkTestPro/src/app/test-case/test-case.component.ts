@@ -10,7 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TestCaseComponent implements OnInit{
 
-  constructor(private apiService: ApiServiceService, private route: ActivatedRoute) { }
+  constructor(private apiService: ApiServiceService, private route: ActivatedRoute) { 
+    this.apiService.takeTestEvent.subscribe((data: FullTestCase) => {
+      this.testCase = data;
+    });
+  }
 
   testCase!: FullTestCase;
 
@@ -25,6 +29,14 @@ export class TestCaseComponent implements OnInit{
 
   toHistory() {
     this.apiService.toTestCaseHistory(this.testCase);
+  }
+
+  toNextCase() {
+    this.apiService.nextCaseEvent.emit(this.testCase);
+  }
+
+  toPrevCase() {
+    this.apiService.prevCaseEvent.emit(this.testCase);
   }
 
 }

@@ -10,7 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TestCaseOverviewComponent implements OnInit{
 
-  constructor(private apiService: ApiServiceService, private route: ActivatedRoute) { }
+  constructor(private apiService: ApiServiceService, private route: ActivatedRoute) { 
+    this.apiService.takeTestEvent.subscribe((data: FullTestCase) => {
+      this.testCase = data;
+    });
+  }
 
   testCase!: FullTestCase;
 
