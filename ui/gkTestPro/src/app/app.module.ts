@@ -39,6 +39,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddTestCaseComponent } from './add-test-case/add-test-case.component';
 import { EditTestCaseComponent } from './edit-test-case/edit-test-case.component';
+import { ImportWindowComponent } from './import-window/import-window.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { EditTestCaseComponent } from './edit-test-case/edit-test-case.component
     LandingPageComponent,
     AddUserComponent,
     AddTestCaseComponent,
-    EditTestCaseComponent
+    EditTestCaseComponent,
+    ImportWindowComponent
   ],
   imports: [
     BrowserModule,

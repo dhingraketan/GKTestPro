@@ -1,0 +1,6 @@
+<div>
+    <input type="file" (change)="onFileChange($event)" />
+</div>
+  
+<button *ngIf="uploadedFile" (click)="uploadFile()">Import</button>
+  

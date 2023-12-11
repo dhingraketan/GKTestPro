@@ -42,6 +42,10 @@ export class ApiServiceService {
     this.router.navigate(['landing-page/add-test-case']);
   }
 
+  navigateToImportCases() {
+    this.router.navigate(['landing-page/settings/import']);
+  }
+
   toTestCase(testCase: FullTestCase) {
     this.router.navigate(['landing-page/test-bank/test-case'], {state: {data: testCase}});
   }
@@ -61,6 +65,13 @@ export class ApiServiceService {
   addTestCase(testCase: TestCase) {
     let url = environment.TEST_CASE_BASE_URL + environment.TEST_CASE.ADD_TEST_CASE;
     return this.httpClient.post(url, testCase);
+  }
+
+  importTestCases(uploadedFile: File){
+    let url = environment.TEST_CASE_BASE_URL + environment.TEST_CASE.IMPORT_TEST_CASES;
+    const formData = new FormData();
+    formData.append('file', uploadedFile);
+    return this.httpClient.post(url, formData);
   }
 
   getTestCases() {

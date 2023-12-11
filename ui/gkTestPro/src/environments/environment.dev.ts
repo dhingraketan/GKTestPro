@@ -14,6 +14,7 @@ export const environment = {
     GET_TEST_CASES: 'list',
     ADD_TEST_CASE: 'add',
     GET_TEST_CASE: 'getCase',
-    EDIT_TEST_CASE: 'edit'
+    EDIT_TEST_CASE: 'edit',
+    IMPORT_TEST_CASES: 'import',
   }
 };

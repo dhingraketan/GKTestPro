@@ -15,4 +15,8 @@ export class SettingsMainComponent {
     console.log("toAddUser");
   }
 
+  toImportCases() {
+    this.apiService.navigateToImportCases();
+  }
+
 }

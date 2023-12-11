@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 const uuid = require('uuid');
+const multer = require('multer');
+
+const fileDir = "C:\\Users\\kdhingra\\OneDrive - GKSystems\\Desktop\\uploads";
 
 const testCasdeModel = require('../models/testcase.model');
 
@@ -8,14 +11,14 @@ const testCasdeModel = require('../models/testcase.model');
 router.get('/list', async (req, res, next) => {
 
     testCasdeModel.find({})
-    .then(testCases => {
-      res.status(200).send(testCases);
-    })
-    .catch(err => {
-      console.log(err);
-      console.log("Error retrieving test Cases");
-      res.status(500).json({ message: "Error retrieving test cases" }); 
-    });
+        .then(testCases => {
+            res.status(200).send(testCases);
+        })
+        .catch(err => {
+            console.log(err);
+            console.log("Error retrieving test Cases");
+            res.status(500).json({ message: "Error retrieving test cases" });
+        });
 });
 
 // Add a test case
@@ -26,7 +29,7 @@ router.post('/add', async (req, res, next) => {
     const LastModified = new Date().toLocaleString();
     const executionHistory = [];
 
-    try{
+    try {
         const newTestCase = {
             id,
             title,
@@ -41,9 +44,9 @@ router.post('/add', async (req, res, next) => {
 
         const result = await testCasdeModel.create(newTestCase);
         console.log(result + "Backdend")
-        res.status(200).json({msg: "Test case created successfully"});
+        res.status(200).json({ msg: "Test case created successfully" });
 
-    } catch(err) {
+    } catch (err) {
         res.status(500);
     }
 });
@@ -53,12 +56,12 @@ router.post('/add', async (req, res, next) => {
 router.get('/getCase', async (req, res, next) => {
     const { id } = req.body;
 
-    try{
-        const result = await testCasdeModel.findOne({id});
+    try {
+        const result = await testCasdeModel.findOne({ id });
 
         res.status(200).send(result);
 
-    } catch(err) {
+    } catch (err) {
         res.status(500);
     }
 });
@@ -68,14 +71,37 @@ router.put('/edit', async (req, res, next) => {
     const { id, title, summary, preCons, steps, expectedResult } = req.body;
     const LastModified = new Date().toLocaleString();
 
-    try{
-        const result = await testCasdeModel.findOneAndUpdate({id}, {title, summary, preCons, steps, expectedResult, LastModified});
+    try {
+        const result = await testCasdeModel.findOneAndUpdate({ id }, { title, summary, preCons, steps, expectedResult, LastModified });
 
-        res.status(200).json({msg: "Test case updated successfully"});
+        res.status(200).json({ msg: "Test case updated successfully" });
 
-    } catch(err) {
+    } catch (err) {
         res.status(500);
     }
+});
+
+var store = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, fileDir);
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
+var upload = multer({ storage: store }).single('file');
+
+router.post('/import', (req, res) => {
+    upload(req, res, function (err) {
+        if (err) {
+            console.log(err);
+            return res.status(501).json({ msg: "Error uploading file" });
+        }
+        console.log(req.file);
+        res.status(200).json({ msg: "File uploaded successfully" });
+        // save the file in directory
+    });
 });
 
 module.exports = router;
