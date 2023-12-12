@@ -21,6 +21,10 @@ export class ImportWindowComponent {
     }
   }
 
+  close(){
+    this.apiService.navigateToSettings();
+  }
+
   uploadFile(): void {
     if (this.uploadedFile) {
       //check if it is an xml file

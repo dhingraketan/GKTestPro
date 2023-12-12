@@ -1,6 +1,13 @@
-<div>
-    <input type="file" (change)="onFileChange($event)" />
+<div class="container">
+    <div class="title">Import Test Cases</div>
+    <div class="file-input">
+        <input type="file" (change)="onFileChange($event)" />
+    </div>
+    
+    <div class="buttons">
+
+        <button class="btn" *ngIf="uploadedFile" (click)="uploadFile()">Import</button>
+        <button class="cncl" (click)="close()">Cancel</button>
+        
+    </div>
 </div>
-  
-<button *ngIf="uploadedFile" (click)="uploadFile()">Import</button>
-  
