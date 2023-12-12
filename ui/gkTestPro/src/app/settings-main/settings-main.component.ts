@@ -11,12 +11,19 @@ export class SettingsMainComponent {
   constructor(private apiService: ApiServiceService) { }
 
   toAddUser(): void{
-    this.apiService.navigateToAddUser();
-    console.log("toAddUser");
+    if (localStorage.getItem("role") == "admin") {
+      this.apiService.navigateToAddUser();
+    } else{
+      alert("You are not authorized to add users!");
+    }
   }
 
   toImportCases() {
-    this.apiService.navigateToImportCases();
+    if (localStorage.getItem("role") == "jt") {
+      alert("You are not authorized to import test cases!");
+    }else {
+      this.apiService.navigateToImportCases();
+    }
   }
 
 }

@@ -35,8 +35,8 @@ router.post('/register', async (req, res, next) => {
     // const token = jwt.sign({_id:_id}, "secret");
     // console.log(token);
     // res.cookie('jwt', token, {httpOnly: true, maxAge: 60*60*1000});
-    res.status(200).json({msg: "User created successfully"});
-    
+    res.status(200).json({ msg: "User created successfully" });
+
 
   } catch (err) {
 
@@ -66,28 +66,29 @@ router.post('/login', async (req, res, next) => {
       return res.status(404).json({ msg: "Incorrect Password" });
     }
 
-    const {_id} = await user.toJSON();
-    const token = jwt.sign({_id:_id}, "secret");
-    res.cookie('jwt', token, {httpOnly: true, maxAge: 60*60*1000});
-    res.status(200).json({msg: "User logged in successfully"});
-    //redirect to dashboard page
-
+    const { _id } = await user.toJSON();
+    const token = jwt.sign({ _id: _id }, "secret");
+    res.cookie('jwt', token, { httpOnly: true, maxAge: 60 * 60 * 1000 });
+    res.status(200).json({ role: user.role });
+    // Add catch statement here
   } catch (err) {
     console.log(err);
     return res.status(500);
   }
+  //redirect to dashboard page
+
 });
 
 router.get('/logout', (req, res) => {
   res.clearCookie('jwt');
-  res.json({msg: "User logged out successfully"});
+  res.json({ msg: "User logged out successfully" });
 });
 
 router.get('/isUserAuth', (req, res) => {
   //check if user is authenticated or not
   try {
     const token = req.cookies.jwt;
-    if(!token) {
+    if (!token) {
       return res.json(false);
     }
     const verified = jwt.verify(token, "secret");

@@ -30,6 +30,9 @@ export class LoginPageComponent implements OnInit{
     this.apiService.login(credentials).subscribe(
       (data: any) => {
         console.log("login success");
+        
+        //store the data in local storage
+        localStorage.setItem("role", data.role);
 
         //redirect to landing page
         this.apiService.navigateToDash();

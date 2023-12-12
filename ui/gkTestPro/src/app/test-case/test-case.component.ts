@@ -8,9 +8,9 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './test-case.component.html',
   styleUrls: ['./test-case.component.css']
 })
-export class TestCaseComponent implements OnInit{
+export class TestCaseComponent implements OnInit {
 
-  constructor(private apiService: ApiServiceService, private route: ActivatedRoute) { 
+  constructor(private apiService: ApiServiceService, private route: ActivatedRoute) {
     this.apiService.takeTestEvent.subscribe((data: FullTestCase) => {
       this.testCase = data;
     });
@@ -23,7 +23,7 @@ export class TestCaseComponent implements OnInit{
     this.apiService.toTestCaseOverview(this.testCase);
   }
 
-  toOvw() { 
+  toOvw() {
     this.apiService.toTestCaseOverview(this.testCase);
   }
 
@@ -40,7 +40,11 @@ export class TestCaseComponent implements OnInit{
   }
 
   toEditTestCase() {
-    this.apiService.toEditTestCase(this.testCase);
+    if (localStorage.getItem("role") == "jt") {
+      alert("You are not authorized to edit test cases!");
+    } else {
+      this.apiService.toEditTestCase(this.testCase);
+    }
   }
 
 }

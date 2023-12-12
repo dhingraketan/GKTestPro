@@ -11,7 +11,7 @@ export class TestBankComponent implements OnInit {
 
   testResult: any;
   testCases!: FullTestCase[];
-  constructor(private apiService: ApiServiceService) { 
+  constructor(private apiService: ApiServiceService) {
     this.apiService.nextCaseEvent.subscribe((data: FullTestCase) => {
       let index = this.findIndex(data);
       if (index < this.testCases.length - 1) {
@@ -56,10 +56,14 @@ export class TestBankComponent implements OnInit {
   }
 
   toAddTestCase() {
-    if (this.apiService.checkAuth()) {
-      this.apiService.navigateToAddTestCase();
+    if (localStorage.getItem("role") == "jt") {
+      alert("You are not authorized to add test cases!");
     } else {
-      this.apiService.navigateToLogin();
+      if (this.apiService.checkAuth()) {
+        this.apiService.navigateToAddTestCase();
+      } else {
+        this.apiService.navigateToLogin();
+      }
     }
   }
 
