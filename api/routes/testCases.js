@@ -3,7 +3,7 @@ var router = express.Router();
 const uuid = require('uuid');
 const multer = require('multer');
 
-const fileDir = "C:\\Users\\kdhingra\\OneDrive - GKSystems\\Desktop\\uploads";
+const fileDir = "./uploads";
 
 const testCasdeModel = require('../models/testcase.model');
 
