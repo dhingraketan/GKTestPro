@@ -6,7 +6,7 @@ let fs = require('fs');
 
 const fileDir = "./uploads";
 
-const testCasdeModel = require('../models/testcase.model');
+const testCaseModel = require('../models/testcase.model');
 
 // GET all test cases
 router.get('/list', async (req, res, next) => {
@@ -17,8 +17,8 @@ router.get('/list', async (req, res, next) => {
         const search = req.query.search || "";
         const skip = page * limit;
 
-        const result = await testCasdeModel.find({ title: { $regex: search, $options: 'i' } }).skip(skip).limit(limit);
-        const count = await testCasdeModel.countDocuments({ title: { $regex: search, $options: 'i' } });
+        const result = await testCaseModel.find({ title: { $regex: search, $options: 'i' } }).skip(skip).limit(limit);
+        const count = await testCaseModel.countDocuments({ title: { $regex: search, $options: 'i' } });
         const pages = Math.ceil(count / limit);
         const response = {
             count,
@@ -39,7 +39,7 @@ router.get('/list', async (req, res, next) => {
     }
 });
 
-// testCasdeModel.find({})
+// testCaseModel.find({})
 //     .then(testCases => {
 //         res.status(200).send(testCases);
 //     })
@@ -70,7 +70,7 @@ router.post('/add', async (req, res, next) => {
             executionHistory
         }
 
-        const result = await testCasdeModel.create(newTestCase);
+        const result = await testCaseModel.create(newTestCase);
         console.log(result + "Backdend")
         res.status(200).json({ msg: "Test case created successfully" });
 
@@ -85,7 +85,7 @@ router.get('/getCase', async (req, res, next) => {
     const { id } = req.body;
 
     try {
-        const result = await testCasdeModel.findOne({ id });
+        const result = await testCaseModel.findOne({ id });
 
         res.status(200).send(result);
 
@@ -100,7 +100,7 @@ router.put('/edit', async (req, res, next) => {
     const LastModified = new Date().toLocaleString();
 
     try {
-        const result = await testCasdeModel.findOneAndUpdate({ id }, { title, summary, preCons, steps, expectedResult, LastModified });
+        const result = await testCaseModel.findOneAndUpdate({ id }, { title, summary, preCons, steps, expectedResult, LastModified });
 
         res.status(200).json({ msg: "Test case updated successfully" });
 
@@ -201,7 +201,7 @@ router.post('/import', (req, res) => {
                             executionHistory
                         }
 
-                        const result = await testCasdeModel.create(newTestCase);
+                        const result = await testCaseModel.create(newTestCase);
                         console.log(result + "Backdend")
                         res.status(200).json({ msg: "Test case created successfully" });
 
