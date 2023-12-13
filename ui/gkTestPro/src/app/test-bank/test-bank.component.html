@@ -27,4 +27,9 @@
     <div class="project-list" *ngFor="let test of testCases">
         <app-test-case-tab [test]="test" (click)="toTestCase(test)"></app-test-case-tab>    
     </div>
+
+    <div class="page-nav">
+        <button *ngIf="currentPage != 1" class="filter-btn" (click)="previousPage()">Previous</button>
+        <button *ngIf="currentPage != testResult.pages" class="filter-btn" (click)="nextPage()">Next</button>
+    </div>
 </div>

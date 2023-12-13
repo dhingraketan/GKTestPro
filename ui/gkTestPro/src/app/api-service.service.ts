@@ -74,9 +74,9 @@ export class ApiServiceService {
     return this.httpClient.post(url, formData);
   }
 
-  getTestCases() {
+  getTestCases(page: number, limit: number) {
     let url = environment.TEST_CASE_BASE_URL + environment.TEST_CASE.GET_TEST_CASES;
-    return this.httpClient.get(url);
+    return this.httpClient.get(url + '?page=' + page + '&limit=' + limit);
   }
 
   addUser(user: User) {

@@ -11,16 +11,43 @@ const testCasdeModel = require('../models/testcase.model');
 // GET all test cases
 router.get('/list', async (req, res, next) => {
 
-    testCasdeModel.find({})
-        .then(testCases => {
-            res.status(200).send(testCases);
-        })
-        .catch(err => {
-            console.log(err);
-            console.log("Error retrieving test Cases");
-            res.status(500).json({ message: "Error retrieving test cases" });
-        });
+    try {
+        const page = parseInt(req.query.page) -1 || 0;
+        const limit = parseInt(req.query.limit) || 30;
+        const search = req.query.search || "";
+        const skip = page * limit;
+
+        const result = await testCasdeModel.find({ title: { $regex: search, $options: 'i' } }).skip(skip).limit(limit);
+        const count = await testCasdeModel.countDocuments({ title: { $regex: search, $options: 'i' } });
+        const pages = Math.ceil(count / limit);
+        const response = {
+            count,
+            page: page + 1,
+            limit,
+            result,
+            pages
+        };
+
+        res.status(200).json(response);
+
+    } catch (err) {
+        console.log(err);
+        console.log("Error retrieving test Cases");
+        res.status(500).json({ message: "Error retrieving test cases" });
+
+        
+    }
 });
+
+// testCasdeModel.find({})
+//     .then(testCases => {
+//         res.status(200).send(testCases);
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         console.log("Error retrieving test Cases");
+//         res.status(500).json({ message: "Error retrieving test cases" });
+//     });
 
 // Add a test case
 router.post('/add', async (req, res, next) => {

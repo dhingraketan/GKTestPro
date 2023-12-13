@@ -11,6 +11,8 @@ export class TestBankComponent implements OnInit {
 
   testResult: any;
   testCases!: FullTestCase[];
+  currentPage: number = 1;
+  pageLimit: number = 30;
   constructor(private apiService: ApiServiceService) {
     this.apiService.nextCaseEvent.subscribe((data: FullTestCase) => {
       let index = this.findIndex(data);
@@ -29,9 +31,9 @@ export class TestBankComponent implements OnInit {
     this.apiService.updateListEvent.subscribe((testCase: FullTestCase) => {
       let index = this.findIndex(testCase);
       this.testCases = []
-      this.apiService.getTestCases().subscribe((data: any) => {
+      this.apiService.getTestCases(this.currentPage,this.pageLimit).subscribe((data: any) => {
         this.testResult = data;
-        this.testCases = this.testResult;
+        this.testCases = this.testResult.result;
       });
 
       this.apiService.toTestCase(testCase);
@@ -49,9 +51,9 @@ export class TestBankComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.apiService.getTestCases().subscribe((data: any) => {
+    this.apiService.getTestCases(this.currentPage,this.pageLimit).subscribe((data: any) => {
       this.testResult = data;
-      this.testCases = this.testResult;
+      this.testCases = this.testResult.result;
     });
   }
 
@@ -69,6 +71,26 @@ export class TestBankComponent implements OnInit {
 
   toTestCase(test: FullTestCase) {
     this.apiService.toTestCase(test);
+  }
+
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.apiService.getTestCases(this.currentPage,this.pageLimit).subscribe((data: any) => {
+        this.testResult = data;
+        this.testCases = this.testResult.result;
+      });
+    }
+  }
+
+  nextPage() {
+    if (this.currentPage <= this.testResult.pages) {
+      this.currentPage++;
+      this.apiService.getTestCases(this.currentPage,this.pageLimit).subscribe((data: any) => {
+        this.testResult = data;
+        this.testCases = this.testResult.result;
+      });
+    }
   }
 
 
