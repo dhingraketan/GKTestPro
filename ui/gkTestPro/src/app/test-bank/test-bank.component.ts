@@ -31,7 +31,7 @@ export class TestBankComponent implements OnInit {
     this.apiService.updateListEvent.subscribe((testCase: FullTestCase) => {
       let index = this.findIndex(testCase);
       this.testCases = []
-      this.apiService.getTestCases(this.currentPage,this.pageLimit).subscribe((data: any) => {
+      this.apiService.getTestCases(this.currentPage,this.pageLimit, '').subscribe((data: any) => {
         this.testResult = data;
         this.testCases = this.testResult.result;
       });
@@ -51,7 +51,7 @@ export class TestBankComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.apiService.getTestCases(this.currentPage,this.pageLimit).subscribe((data: any) => {
+    this.apiService.getTestCases(this.currentPage,this.pageLimit, '').subscribe((data: any) => {
       this.testResult = data;
       this.testCases = this.testResult.result;
     });
@@ -76,7 +76,7 @@ export class TestBankComponent implements OnInit {
   previousPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
-      this.apiService.getTestCases(this.currentPage,this.pageLimit).subscribe((data: any) => {
+      this.apiService.getTestCases(this.currentPage,this.pageLimit, '').subscribe((data: any) => {
         this.testResult = data;
         this.testCases = this.testResult.result;
       });
@@ -86,12 +86,20 @@ export class TestBankComponent implements OnInit {
   nextPage() {
     if (this.currentPage <= this.testResult.pages) {
       this.currentPage++;
-      this.apiService.getTestCases(this.currentPage,this.pageLimit).subscribe((data: any) => {
+      this.apiService.getTestCases(this.currentPage,this.pageLimit, '').subscribe((data: any) => {
         this.testResult = data;
         this.testCases = this.testResult.result;
       });
     }
   }
 
+  onSearch(event: any): void {
+
+    var search = event.target.value;
+    this.apiService.getTestCases(this.currentPage,this.pageLimit, search).subscribe((data: any) => {
+      this.testResult = data;
+      this.testCases = this.testResult.result;
+    });
+  }
 
 }

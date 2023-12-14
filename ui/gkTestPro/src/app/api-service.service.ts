@@ -5,6 +5,7 @@ import { environment } from '../environments/environment.dev';
 import { User } from './User';
 import { TestCase } from './TestCase';
 import { FullTestCase } from './FullTestCase';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -74,9 +75,9 @@ export class ApiServiceService {
     return this.httpClient.post(url, formData);
   }
 
-  getTestCases(page: number, limit: number) {
+  getTestCases(page: number, limit: number, search: string) {
     let url = environment.TEST_CASE_BASE_URL + environment.TEST_CASE.GET_TEST_CASES;
-    return this.httpClient.get(url + '?page=' + page + '&limit=' + limit);
+    return this.httpClient.get(url + '?page=' + page + '&limit=' + limit + '&search=' + search);
   }
 
   addUser(user: User) {
