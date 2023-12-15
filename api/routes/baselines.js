@@ -66,7 +66,8 @@ router.post('/addTestSuite', async (req, res, next) => {
     const LastModified = new Date().toLocaleString();
 
     try{
-        const result = await baselineModel.updateOne({id: baselineId}, {$push: {testSuites: testSuiteId}, LastModified});
+        const result = await baselineModel.updateOne({id: baselineId}, {$push: {testSuites: testSuiteId} });
+        const result2 = await baselineModel.updateOne({id: baselineId}, {LastModified});
         res.status(200).json(result);
     } catch(err) {
         console.log(err);
@@ -82,7 +83,8 @@ router.post('/addTestSuites', async (req, res, next) => {
 
     try{
         // add test case to testSuite and update last modified
-        const result = await baselineModel.updateOne({id: baselineId}, {$push: {testSuites: {$each: testSuiteIds}}, LastModified});
+        const result = await baselineModel.updateOne({id: baselineId}, {$push: {testSuites: {$each: testSuiteIds}}});
+        const result2 = await baselineModel.updateOne({id: baselineId}, {LastModified});
         res.status(200).json({ message: "testSuites added successfully"});
     } catch(err) {
         console.log(err);
@@ -97,7 +99,8 @@ router.post('/removeTestSuite', async (req, res, next) => {
     const LastModified = new Date().toLocaleString();
 
     try{
-        const result = await baselineModel.updateOne({id: baselineId}, {$pull: {testSuites: testSuiteId}, LastModified});
+        const result = await baselineModel.updateOne({id: baselineId}, {$pull: {testSuites: testSuiteId}});
+        const result2 = await baselineModel.updateOne({id: baselineId}, {LastModified});
         res.status(200).json(result);
     } catch(err) {
         console.log(err);
@@ -113,7 +116,8 @@ router.post('/removeTestSuites', async (req, res, next) => {
 
     try{
         // add test case to testSuite and update last modified
-        const result = await baselineModel.updateOne({id: baselineId}, {$pull: {testSuites: {$in: testSuiteIds}}, LastModified});
+        const result = await baselineModel.updateOne({id: baselineId}, {$pull: {testSuites: {$in: testSuiteIds}}});
+        const result2 = await baselineModel.updateOne({id: baselineId}, {LastModified});
         res.status(200).json({ message: "testSuites removed successfully"});
     } catch(err) {
         console.log(err);

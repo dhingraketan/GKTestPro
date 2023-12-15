@@ -65,7 +65,8 @@ router.post('/addTestCase', async (req, res, next) => {
 
     try{
         // add test case to phase and update last modified
-        const result = await phaseModel.updateOne({id: phaseId}, {$push: {testCases: testCaseId}, LastModified});
+        const result = await phaseModel.updateOne({id: phaseId}, {$push: {testCases: testCaseId}});
+        const result2 = await phaseModel.updateOne({id: phaseId}, {LastModified});
         res.status(200).json({ message: "Test Case added successfully"});
     } catch(err) {
         console.log(err);
@@ -81,7 +82,8 @@ router.post('/addTestCases', async (req, res, next) => {
 
     try{
         // add test case to phase and update last modified
-        const result = await phaseModel.updateOne({id: phaseId}, {$push: {testCases: {$each: testCaseIds}}, LastModified});
+        const result = await phaseModel.updateOne({id: phaseId}, {$push: {testCases: {$each: testCaseIds}}});
+        const result2 = await phaseModel.updateOne({id: phaseId}, {LastModified});
         res.status(200).json({ message: "Test Cases added successfully"});
     } catch(err) {
         console.log(err);
@@ -96,7 +98,8 @@ router.post('/deleteTestCase', async (req, res, next) => {
     const LastModified = new Date().toLocaleString();
 
     try{
-        const result = await phaseModel.updateOne({id: phaseId}, {$pull: {testCases: testCaseId}, LastModified});
+        const result = await phaseModel.updateOne({id: phaseId}, {$pull: {testCases: testCaseId}});
+        const result2 = await phaseModel.updateOne({id: phaseId}, {LastModified});
         res.status(200).json({ message: "Test Case deleted successfully"});
     } catch(err) {
         console.log(err);

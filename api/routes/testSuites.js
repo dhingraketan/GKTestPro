@@ -66,7 +66,8 @@ router.post('/addPhase', async (req, res, next) => {
     const LastModified = new Date().toLocaleString();
 
     try{
-        const result = await testSuiteModel.updateOne({id: testSuiteId}, {$push: {phases: phaseId}, LastModified});
+        const result = await testSuiteModel.updateOne({id: testSuiteId}, {$push: {phases: phaseId}});
+        const result2 = await testSuiteModel.updateOne({id: testSuiteId}, {LastModified});
         res.status(200).json(result);
     } catch(err) {
         console.log(err);
@@ -81,7 +82,8 @@ router.post('/addPhases', async (req, res, next) => {
     const LastModified = new Date().toLocaleString();
 
     try{
-        const result = await testSuiteModel.updateOne({id: testSuiteId}, {$push: {phases: {$each: phases}}, LastModified});
+        const result = await testSuiteModel.updateOne({id: testSuiteId}, {$push: {phases: {$each: phases}}});
+        const result2 = await testSuiteModel.updateOne({id: testSuiteId}, {LastModified});
         res.status(200).json({message: "Phases added successfully"});
     } catch(err) {
         console.log(err);
@@ -96,8 +98,9 @@ router.post('/removePhase', async (req, res, next) => {
     const LastModified = new Date().toLocaleString();
 
     try{
-        const result = await testSuiteModel.updateOne({id: testSuiteId}, {$pull: {phases: phaseId}, LastModified});
-        res.status(200).json(result);
+        const result = await testSuiteModel.updateOne({id: testSuiteId}, {$pull: {phases: phaseId}});
+        const result2 = await testSuiteModel.updateOne({id: testSuiteId}, {LastModified});
+        res.status(200).json(result2);
     } catch(err) {
         console.log(err);
         console.log("Error removing phase from testSuite");
@@ -111,7 +114,8 @@ router.post('/removePhases', async (req, res, next) => {
     const LastModified = new Date().toLocaleString();
     
     try{
-        const result = await testSuiteModel.updateOne({id: testSuiteId}, {$pull: {phases: {$in: phases}}, LastModified});
+        const result = await testSuiteModel.updateOne({id: testSuiteId}, {$pull: {phases: {$in: phases}}});
+        const result2 = await testSuiteModel.updateOne({id: testSuiteId}, {LastModified});
         res.status(200).json({message: "Phases removed successfully"});
     } catch(err) {
         console.log(err);
