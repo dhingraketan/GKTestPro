@@ -6,7 +6,7 @@
 
     <div class="srch">
       <div class="search-bar">
-        <input type="text" class="search-input" placeholder="Search">
+        <input type="text" class="search-input" placeholder="Search" (input)="onSearch($event)">
       </div>
       <div class="search-icon"></div>
 
@@ -24,13 +24,7 @@
 
   </div>
 
-  <div class="project-list">
-    <app-project-tab></app-project-tab>
-    <app-project-tab></app-project-tab>
-    <app-project-tab></app-project-tab>
-    <app-project-tab></app-project-tab>
-    <app-project-tab></app-project-tab>
-    <app-project-tab></app-project-tab>
-    <app-project-tab></app-project-tab>
+  <div class="project-list" *ngFor="let project of projects">
+    <app-project-tab [project]="project" (click)="toProject(project)"></app-project-tab>    
   </div>
 </div>

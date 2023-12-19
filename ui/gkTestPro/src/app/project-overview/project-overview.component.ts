@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import { ApiServiceService } from '../api-service.service';
 
 @Component({
   selector: 'app-project-overview',
@@ -9,7 +10,7 @@ import { Chart } from 'chart.js';
 })
 export class ProjectOverviewComponent implements OnInit{
 
-  constructor() { }
+  constructor(private apiService: ApiServiceService) { }
 
   ngOnInit() {
     const myChart = new Chart("chrt", {
@@ -58,5 +59,9 @@ export class ProjectOverviewComponent implements OnInit{
       }
     });
   }
+
+  toBaselineList() {
+    // this.apiService.toBaselineList(this.);
+  }  
 
 }

@@ -1,9 +1,4 @@
 const mongoose = require('mongoose');
-const testCasesSchema = require('./testcase.model').testCasesSchema;
-const phaseSchema = require('./phase.model').phaseSchema;
-const testSuiteSchema = require('./testsuite.model').testSuiteSchema;
-const baselineSchema = require('./baseline.model').baselineSchema;
-const projectSchema = require('./project.model').projectSchema;
 
 const testRunSchema = mongoose.Schema({
 

@@ -69,5 +69,9 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  toAddProject() {
+    this.apiService.toAddProject();
+  }
+
 
 }

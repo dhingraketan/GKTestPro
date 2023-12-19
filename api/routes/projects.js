@@ -38,6 +38,7 @@ router.get('/list', async (req, res, next) => {
 // Add a project
 router.post('/add', async (req, res, next) => {
     const {title, ownerId, baselines } = req.body;
+    console.log(req.body);
     const id = uuid.v4();
     const createdOn = new Date().toLocaleString();
     const LastModified = new Date().toLocaleString();

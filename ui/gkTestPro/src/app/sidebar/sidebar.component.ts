@@ -12,6 +12,7 @@ export class SidebarComponent {
 
   logout() {
     localStorage.removeItem("role");
+    localStorage.removeItem("name");
     this.apiService.logout().subscribe(
       (data: any) => {
         this.apiService.navigateToLogin();

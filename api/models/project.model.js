@@ -7,7 +7,7 @@ const projectSchema = mongoose.Schema({
     ownerId: String,
     createdOn: String,
     lastModified: String,
-    baselines: [{baselineId: String}]
+    baselines: [String]
 
 });
 

@@ -18,6 +18,8 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { AddTestCaseComponent } from './add-test-case/add-test-case.component';
 import { EditTestCaseComponent } from './edit-test-case/edit-test-case.component';
 import { ImportWindowComponent } from './import-window/import-window.component';
+import { BaselineListComponent } from './baseline-list/baseline-list.component';
+import { AddProjectComponent } from './add-project/add-project.component';
 
 const routes: Routes = [
   {
@@ -52,6 +54,10 @@ const routes: Routes = [
       path: 'edit', component: EditTestCaseComponent 
     }, {
       path: 'settings/import', component: ImportWindowComponent
+    }, {
+      path: 'baseline-list', component: BaselineListComponent
+    }, {
+      path: 'add-project', component: AddProjectComponent
     }
   ]
   },

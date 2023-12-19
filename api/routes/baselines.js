@@ -52,7 +52,7 @@ router.post('/add', async (req, res, next) => {
         }
 
         const result = await baselineModel.create(newBaseline);
-        res.status(200).json(id);
+        res.status(200).json({id: id});
     } catch(err) {
         console.log(err);
         console.log("Error adding baseline");
@@ -66,7 +66,7 @@ router.post('/addTestSuite', async (req, res, next) => {
     const LastModified = new Date().toLocaleString();
 
     try{
-        const result = await baselineModel.updateOne({id: baselineId}, {$push: {testSuites: testSuiteId} });
+        const result = await baselineModel.updateOne({id: baselineId}, {$push: testSuiteId });
         const result2 = await baselineModel.updateOne({id: baselineId}, {LastModified});
         res.status(200).json(result);
     } catch(err) {

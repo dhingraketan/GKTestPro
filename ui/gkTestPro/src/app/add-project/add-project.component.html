@@ -1,0 +1,17 @@
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    <mat-card class="container">
+        <mat-card-title class="heading">Create New Project</mat-card-title>
+        <mat-card-content>
+            <mat-form-field>
+                <textarea matInput placeholder="Title" formControlName="title"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput placeholder="Baseline" formControlName="baseline"></textarea>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions class="buttons">
+            <button class="add-btn" type="submit" [disabled]="!projectForm.valid">Add</button>
+            <button class="cancel-btn" type="button" (click)="onCancel()">Cancel</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

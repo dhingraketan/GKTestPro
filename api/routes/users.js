@@ -69,7 +69,7 @@ router.post('/login', async (req, res, next) => {
     const { _id } = await user.toJSON();
     const token = jwt.sign({ _id: _id }, "secret");
     res.cookie('jwt', token, { httpOnly: true, maxAge: 60 * 60 * 1000 });
-    res.status(200).json({ role: user.role });
+    res.status(200).json({ role: user.role, name: user.name });
     // Add catch statement here
   } catch (err) {
     console.log(err);

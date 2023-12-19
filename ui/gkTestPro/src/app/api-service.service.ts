@@ -5,7 +5,7 @@ import { environment } from '../environments/environment.dev';
 import { User } from './User';
 import { TestCase } from './TestCase';
 import { FullTestCase } from './FullTestCase';
-import { Observable, of } from 'rxjs';
+import { Project } from './Project';
 
 @Injectable({
   providedIn: 'root'
@@ -78,6 +78,33 @@ export class ApiServiceService {
   getTestCases(page: number, limit: number, search: string) {
     let url = environment.TEST_CASE_BASE_URL + environment.TEST_CASE.GET_TEST_CASES;
     return this.httpClient.get(url + '?page=' + page + '&limit=' + limit + '&search=' + search);
+  }
+
+  toAddProject() {
+    this.router.navigate(['landing-page/add-project']);
+  }
+
+  getProjects(page: number, limit: number, search: string) {
+    let url = environment.PROJECT_BASE_URL + environment.PROJECT.GET_PROJECTS;
+    return this.httpClient.get(url + '?page=' + page + '&limit=' + limit + '&search=' + search);
+  }
+
+  createProject(project: Project) {
+    let url = environment.PROJECT_BASE_URL + environment.PROJECT.ADD_PROJECT;
+    return this.httpClient.post(url, project);
+  }
+
+  toProjectOverview(project: Project) {
+    this.router.navigate(['landing-page/project-overview'], {state: {data: project}});
+  }
+
+  toBaselineList(baselines: string[]) {
+    this.router.navigate(['landing-page/baseline-list'], {state: {data: baselines}});
+  }
+
+  createBaseline(title: string, testSuites: string[]) {
+    let url = environment.BASELINE_BASE_URL + environment.BASELINE.ADD_BASELINE;
+    return this.httpClient.post(url, {title: title, testSuites: testSuites});
   }
 
   addUser(user: User) {

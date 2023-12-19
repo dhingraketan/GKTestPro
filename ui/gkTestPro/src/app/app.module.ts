@@ -40,6 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddTestCaseComponent } from './add-test-case/add-test-case.component';
 import { EditTestCaseComponent } from './edit-test-case/edit-test-case.component';
 import { ImportWindowComponent } from './import-window/import-window.component';
+import { BaselineListComponent } from './baseline-list/baseline-list.component';
+import { AddProjectComponent } from './add-project/add-project.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { ImportWindowComponent } from './import-window/import-window.component';
     AddUserComponent,
     AddTestCaseComponent,
     EditTestCaseComponent,
-    ImportWindowComponent
+    ImportWindowComponent,
+    BaselineListComponent,
+    AddProjectComponent
   ],
   imports: [
     BrowserModule,

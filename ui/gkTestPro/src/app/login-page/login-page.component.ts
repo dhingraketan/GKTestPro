@@ -33,6 +33,7 @@ export class LoginPageComponent implements OnInit{
         
         //store the data in local storage
         localStorage.setItem("role", data.role);
+        localStorage.setItem("name", data.name);
 
         //redirect to landing page
         this.apiService.navigateToDash();
