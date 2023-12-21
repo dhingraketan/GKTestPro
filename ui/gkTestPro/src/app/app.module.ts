@@ -42,6 +42,7 @@ import { EditTestCaseComponent } from './edit-test-case/edit-test-case.component
 import { ImportWindowComponent } from './import-window/import-window.component';
 import { BaselineListComponent } from './baseline-list/baseline-list.component';
 import { AddProjectComponent } from './add-project/add-project.component';
+import { BaselineTabComponent } from './baseline-tab/baseline-tab.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { AddProjectComponent } from './add-project/add-project.component';
     EditTestCaseComponent,
     ImportWindowComponent,
     BaselineListComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    BaselineTabComponent
   ],
   imports: [
     BrowserModule,
